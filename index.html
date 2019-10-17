@@ -13,16 +13,31 @@
 						"ask": "https://www.ask.com/web"
 					};
         			let finalAction = actions[engine];
+					console.log("finalAction is ", finalAction);
+
+				//document.getElementsByTagName("INPUT")[0].setAttribute("type", "button");
+				//document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com"); 
+					//document.getElementById("searchForm").setAttribute("action", "finalAction"); 
 					document.getElementById("searchForm").action = finalAction;
 					return;
 				}
     			window.addEventListener("load", function(){
 					let form = document.querySelector("form");
-					form.addEventListener('submit',function() {
+					form.addEventListener('submit',function() {	
 						let qTest = document.querySelector("input[name=q]");
 						if (qTest.value === "") {
             				alert("please enter a search query");
             				event.preventDefault();
+						}
+        				let found = "";
+        				let picked = document.getElementsByName("engine");
+        				for(let i = 0; i < picked.length; i++){
+            				if(picked[i].checked) {
+                				found = true;
+            				} 
+        				}   
+						if(!found) {
+							alert("please choose a search engine!")
 						}
 						setSearchEngine();
 					});
