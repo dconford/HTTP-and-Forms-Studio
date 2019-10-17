@@ -1,0 +1,41 @@
+html {
+    background-color: #ff00ff; 
+}
+ 
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+fieldset {
+    border: 5px solid #0e0101; 
+    display: inline;
+    /* float: center; */
+    text-align: center;
+    font-size: 18px ;
+    width: 1100px;
+    height: 25px; 
+    align-self: center ;
+    float: right;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    align-content: center;
+    position: relative;
+}
+
+ /* #inner_box {
+    align-content:center;
+    align-self: center;
+} 
+  */
+  #outter_box {
+    width:90%;
+    position: relative;
+    align-content:center;
+    align-self: center;
+} 

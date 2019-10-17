@@ -1,6 +1,8 @@
 <!doctype html>
 	<head>
+		<title>My Search Engine Selector</title>
 		<meta charset="utf-8">
+		<link href="style.css" rel="stylesheet" type="text/css" />
 			<script>
 			// TODO: create a handler
 				function setSearchEngine() {
@@ -47,15 +49,19 @@
 		</script>
 	</head>
 	<body>
+			<h1>My Search Engine Selector</h1>
 		<form method="GET" id="searchForm">
 		<!-- TODO: add form elements -->
-			<fieldset>
-				<label><input type="text" name="q"/></label>
+		<div id = top_third>
+			<section id="outter_box">
+			<fieldset id="inner_box">
+				<label><input type="text" name="q"/>Enter Search Here</label>
 				<label><input type="radio" name="engine" value="google">Google</label>
 				<label><input type="radio" name="engine" value="duckduckgo">DuckDuckGo</label>
 				<label><input type="radio" name="engine" value="bing">Bing</label> 
 				<label><input type="radio" name="engine" value="ask">Ask</label>
 				<button value="go">Go</button>
-			</fieldset>		
+			</fieldset>	
+		</section>
 		</form>
 	</body>
