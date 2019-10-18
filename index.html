@@ -6,20 +6,31 @@
 			<script>
 			// TODO: create a handler
 				function setSearchEngine() {
-					let engine = document.querySelector("input[name=engine]:checked").value;
-					console.log("engine is ", engine);
+					let engine = document.querySelector("input[name=engine]:checked");
+					console.log("engine.value is ", engine.value);
+					let engineValue = engine.value;
+					console.log("engineValue is ", engineValue, engine.value);
+
+
+
+
+
+
 					let actions = {
    						"google": "https://www.google.com/search",
 						"duckduckgo": "https://www.duckduckgo.com",
 						"bing": "https://www.bing.com",
 						"ask": "https://www.ask.com/web"
 					};
-        			let finalAction = actions[engine];
+        			let finalAction = actions[engineValue];
 					console.log("finalAction is ", finalAction);
+					 //let finalValue = document.getElementById("searchForm");
+					 //finalValue.setAttribute("action", "finalAction");
 
 				//document.getElementsByTagName("INPUT")[0].setAttribute("type", "button");
 				//document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com"); 
 					//document.getElementById("searchForm").setAttribute("action", "finalAction"); 
+					//try it in two steps
 					document.getElementById("searchForm").action = finalAction;
 					return;
 				}
