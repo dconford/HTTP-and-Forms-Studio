@@ -4,30 +4,9 @@
 		<meta charset="utf-8">
 		<link href="style.css" rel="stylesheet" type="text/css" />
 			<script>
-			// TODO: create a handler
-				function setSearchEngine() {
-					let engine = document.querySelector("input[name=engine]:checked").value;
-					console.log("engine is ", engine);
-					let actions = {
-   						"google": "https://www.google.com/search",
-						"duckduckgo": "https://www.duckduckgo.com",
-						"bing": "https://www.bing.com",
-						"ask": "https://www.ask.com/web"
-					};
-        			let finalAction = actions[engine];
-					console.log("finalAction is ", finalAction);
-
-				//document.getElementsByTagName("INPUT")[0].setAttribute("type", "button");
-				//document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com"); 
-					//document.getElementById("searchForm").setAttribute("action", "finalAction"); 
-					document.getElementById("searchForm").action = finalAction;
-					return;
-				}
-    			window.addEventListener("load", function(){
-					let form = document.querySelector("form");
-					form.addEventListener('submit',function() {	
-						let found = "";
-        				let picked = document.getElementsByName("engine");
+				function setSearchEngine(form) {
+					let found = "";
+        			let picked = document.getElementsByName("engine");
         				for(let i = 0; i < picked.length; i++){
             				if(picked[i].checked) {
                 				found = true;
@@ -38,20 +17,32 @@
 							event.preventDefault();
 						}
 						let qTest = document.querySelector("input[name=q]");
-						if (qTest.value === "") {
+						if (qTest.value === "" && found) {
             				alert("please enter a search query");
             				event.preventDefault();
 						}
-						setSearchEngine();
+					let engine = document.querySelector("input[name=engine]:checked");
+					console.log("engine.value is ", engine.value);
+					let actions = {
+   						"google": "https://www.google.com/search",
+						"duckduckgo": "https://www.duckduckgo.com",
+						"bing": "https://www.bing.com",
+						"ask": "https://www.ask.com/web"
+					};
+					form.setAttribute("action", actions[engine.value]);
+					return;
+				}
+    			window.addEventListener("load", function(){
+					let form = document.querySelector("form");
+					form.addEventListener('submit',function() {	
+						setSearchEngine(form);
 					});
-        	// TODO: register the handler
     			});
 		</script>
 	</head>
 	<body>
 			<h1>My Search Engine Selector</h1>
 		<form method="GET" id="searchForm">
-		<!-- TODO: add form elements -->
 		<div id = top_third>
 			<section id="outter_box">
 			<fieldset id="inner_box">
@@ -63,5 +54,6 @@
 				<button value="go">Go</button>
 			</fieldset>	
 		</section>
+		</div>
 		</form>
 	</body>
